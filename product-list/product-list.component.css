@@ -1,0 +1,11 @@
+table{
+  width: 100%;
+  .mat-mdc-header-cell {
+    font-weight: bold;
+    background: #7d0e9a;
+    color: whitesmoke;
+  }
+}
+.mat-mdc-form-field {
+  width:100%;
+}

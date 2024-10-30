@@ -1,0 +1,37 @@
+<h1>Lista de Funcionarios</h1>
+
+<mat-form-field>
+  <mat-label>pesquisar nome</mat-label>
+  <input matInput [(ngModel)]="searchNameEmployee">
+  <button matSuffix mat-icon-button aria-label="Search" (click)="search()">
+    <mat-icon>search></mat-icon>
+  </button>
+</mat-form-field>
+<mat-form-field>
+  <mat-label>pesquisar registro</mat-label>
+  <input matInput [(ngModel)]="searchRegistration">
+  <button matSuffix mat-icon-button aria-label="Search" (click)="search()">
+    <mat-icon>search></mat-icon>
+  </button>
+</mat-form-field>
+
+<mat-card>
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Cod.</th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nome.</th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="registration">
+      <th mat-header-cell *matHeaderCellDef> Registro.</th>
+      <td mat-cell *matCellDef="let element"> {{element.registration}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row;columns: displayedColumns"></tr>
+  </table>
+</mat-card>

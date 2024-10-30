@@ -1,0 +1,69 @@
+<h1>Lista de Vendas</h1>
+
+<mat-form-field>
+  <mat-label>pesquisar cliente</mat-label>
+  <input matInput [(ngModel)]="searchClient">
+  <button matSuffix mat-icon-button aria-label="Search" (click)="search()">
+    <mat-icon>search></mat-icon>
+  </button>
+</mat-form-field>
+<!--<mat-form-field>-->
+<!--  <mat-label>pesquisar cpf clientes</mat-label>-->
+<!--  <input matInput [(ngModel)]="searchCpf_client">-->
+<!--  <button matSuffix mat-icon-button aria-label="Search" (click)="search()">-->
+<!--    <mat-icon>search></mat-icon>-->
+<!--  </button>-->
+<!--</mat-form-field>-->
+<mat-form-field>
+  <mat-label>pesquisar produtos</mat-label>
+  <input matInput [(ngModel)]="searchProduct">
+  <button matSuffix mat-icon-button aria-label="Search" (click)="search()">
+    <mat-icon>search></mat-icon>
+  </button>
+</mat-form-field>
+<mat-form-field>
+  <mat-label>pesquisar NRF</mat-label>
+  <input matInput [(ngModel)]="searchNrf">
+  <button matSuffix mat-icon-button aria-label="Search" (click)="search()">
+    <mat-icon>search></mat-icon>
+  </button>
+</mat-form-field>
+<mat-card>
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Cod.</th>
+      <td mat-cell *matCellDef="let element"> {{ element.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="client">
+      <th mat-header-cell *matHeaderCellDef> Cliente.</th>
+      <td mat-cell *matCellDef="let element"> {{ element.client}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="cpf_client">
+      <th mat-header-cell *matHeaderCellDef> CPF Clientes.</th>
+      <td mat-cell *matCellDef="let element"> {{ element.cpf_client}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="product">
+      <th mat-header-cell *matHeaderCellDef> Produtos.</th>
+      <td mat-cell *matCellDef="let element"> {{ element.product }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="employee">
+      <th mat-header-cell *matHeaderCellDef>Funcionario</th>
+      <td mat-cell *matCellDef="let element"> {{ element.employee}}</td>
+    </ng-container>
+    <ng-container matColumnDef="registration_employee">
+      <th mat-header-cell *matHeaderCellDef>Registro</th>
+      <td mat-cell *matCellDef="let element"> {{ element.registration_employee}}</td>
+    </ng-container>
+    <ng-container matColumnDef="nrf">
+      <th mat-header-cell *matHeaderCellDef>NRF</th>
+      <td mat-cell *matCellDef="let element"> {{ element.nrf}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row;columns: displayedColumns"></tr>
+  </table>
+</mat-card>
